@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Dijkstra Algorithm</title>
+    <authors>agabani</authors>
+    <owners>agabani</owners>
+    <licenseUrl>https://github.com/agabani/DijkstraAlgorithm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/agabani/DijkstraAlgorithm</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dijkstra Algorithm</description>
+    <releaseNotes>Dijkstra Algorithm.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Dijkstra Algorithm</tags>
+  </metadata>
+</package>
