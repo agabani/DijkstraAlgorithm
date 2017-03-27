@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DijkstraAlgorithm", "DijkstraAlgorithm\DijkstraAlgorithm.csproj", "{4020FC5D-4982-489D-8886-33E73BCA806F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DijkstraAlgorithm.Tests", "DijkstraAlgorithm.Tests\DijkstraAlgorithm.Tests.csproj", "{BE8E3501-C5E7-41DF-B9D7-25498F86F405}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4020FC5D-4982-489D-8886-33E73BCA806F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4020FC5D-4982-489D-8886-33E73BCA806F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4020FC5D-4982-489D-8886-33E73BCA806F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8E3501-C5E7-41DF-B9D7-25498F86F405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8E3501-C5E7-41DF-B9D7-25498F86F405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8E3501-C5E7-41DF-B9D7-25498F86F405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8E3501-C5E7-41DF-B9D7-25498F86F405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
