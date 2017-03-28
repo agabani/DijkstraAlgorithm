@@ -29,16 +29,16 @@ namespace DijkstraAlgorithm.Pathing
             if (origin == destination)
                 throw new PathFinderException("Cannot find path to self.");
 
-            return Build(origin, destination, Process(origin, _graph));
+            return Build(origin, destination, Process(origin, destination, _graph));
         }
 
-        private static List<Record> Process(Node origin, Graph graph)
+        private static List<Record> Process(Node origin, Node destination, Graph graph)
         {
             var visited = new List<Node>();
 
             var records = CreateInitialRecords(origin, graph);
 
-            var currentRecord = NextRecordToProcess(records, visited);
+            var currentRecord = NextRecordToProcess(records, visited, destination);
 
             do
             {
@@ -56,7 +56,7 @@ namespace DijkstraAlgorithm.Pathing
 
                 visited.Add(currentRecord.Vertex);
 
-                currentRecord = NextRecordToProcess(records, visited);
+                currentRecord = NextRecordToProcess(records, visited, destination);
             } while (currentRecord != null);
 
             return records;
@@ -78,8 +78,11 @@ namespace DijkstraAlgorithm.Pathing
             return records;
         }
 
-        private static Record NextRecordToProcess(IEnumerable<Record> records, ICollection<Node> visited)
+        private static Record NextRecordToProcess(IEnumerable<Record> records, ICollection<Node> visited, Node destination)
         {
+            if (visited.Contains(destination))
+                return null;
+
             return records
                 .Where(record => !visited.Contains(record.Vertex))
                 .OrderBy(r => r.Weight)
