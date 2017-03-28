@@ -103,6 +103,9 @@ namespace DijkstraAlgorithm.Pathing
 
             var currentRecord = Destination(destination, records);
 
+            if (currentRecord.PreviousVertex == null)
+                throw new NoPathFoundException("No paths have been found.");
+
             do
             {
                 segments.Add(CreateSegment(currentRecord));
