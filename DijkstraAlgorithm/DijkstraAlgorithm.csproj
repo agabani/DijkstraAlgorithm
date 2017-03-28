@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidPathException.cs" />
     <Compile Include="Graphing\Graph.cs" />
     <Compile Include="Graphing\GraphBuilder.cs" />
     <Compile Include="Graphing\Link.cs" />

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DijkstraAlgorithm.Exceptions;
 using DijkstraAlgorithm.Graphing;
 
 namespace DijkstraAlgorithm.Pathing
@@ -10,11 +11,23 @@ namespace DijkstraAlgorithm.Pathing
 
         public PathFinder(Graph graph)
         {
+            if (graph == null)
+                throw new InvalidPathException("Cannot create path finder with null graph.");
+
             _graph = graph;
         }
 
         public Path FindShortestPath(Node origin, Node destination)
         {
+            if (origin == null)
+                throw new InvalidPathException("Cannot path from null.");
+
+            if (destination == null)
+                throw new InvalidPathException("Cannot path to null.");
+
+            if (origin == destination)
+                throw new InvalidPathException("Cannot find path to self.");
+
             return Build(origin, destination, Process(origin, _graph));
         }
 
@@ -129,16 +142,16 @@ namespace DijkstraAlgorithm.Pathing
                 PreviousVertex = null;
             }
 
-            public Node Vertex { get; }
-            public double Weight { get; private set; }
-            public Node PreviousVertex { get; private set; }
+            internal Node Vertex { get; }
+            internal double Weight { get; private set; }
+            internal Node PreviousVertex { get; private set; }
 
-            public static Record Create(Node vertex)
+            internal static Record Create(Node vertex)
             {
                 return new Record(vertex);
             }
 
-            public void Update(double weight, Node previousVertex)
+            internal void Update(double weight, Node previousVertex)
             {
                 Weight = weight;
                 PreviousVertex = previousVertex;

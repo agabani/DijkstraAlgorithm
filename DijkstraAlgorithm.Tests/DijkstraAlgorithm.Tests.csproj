@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Demo.cs" />
+    <Compile Include="Errors\Pathing\InvalidParamtersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BiDirectionalTests.cs" />
     <Compile Include="UniDirectionalTests.cs" />
