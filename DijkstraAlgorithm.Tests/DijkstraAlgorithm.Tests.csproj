@@ -39,7 +39,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Demo.cs" />
-    <Compile Include="Errors\Pathing\InvalidParamtersTests.cs" />
+    <Compile Include="Errors\Graphing\InvalidBuildTests.cs" />
+    <Compile Include="Errors\Pathing\InvalidParametersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BiDirectionalTests.cs" />
     <Compile Include="UniDirectionalTests.cs" />
@@ -53,6 +54,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

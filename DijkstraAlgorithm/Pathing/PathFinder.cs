@@ -12,7 +12,7 @@ namespace DijkstraAlgorithm.Pathing
         public PathFinder(Graph graph)
         {
             if (graph == null)
-                throw new InvalidPathException("Cannot create path finder with null graph.");
+                throw new PathFinderException("Cannot create path finder with null graph.");
 
             _graph = graph;
         }
@@ -20,13 +20,13 @@ namespace DijkstraAlgorithm.Pathing
         public Path FindShortestPath(Node origin, Node destination)
         {
             if (origin == null)
-                throw new InvalidPathException("Cannot path from null.");
+                throw new PathFinderException("Cannot path from null node.");
 
             if (destination == null)
-                throw new InvalidPathException("Cannot path to null.");
+                throw new PathFinderException("Cannot path to null node.");
 
             if (origin == destination)
-                throw new InvalidPathException("Cannot find path to self.");
+                throw new PathFinderException("Cannot find path to self.");
 
             return Build(origin, destination, Process(origin, _graph));
         }

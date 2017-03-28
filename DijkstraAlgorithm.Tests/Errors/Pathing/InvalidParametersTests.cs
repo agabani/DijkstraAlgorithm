@@ -7,12 +7,12 @@ using NUnit.Framework;
 namespace DijkstraAlgorithm.Tests.Errors.Pathing
 {
     [TestFixture]
-    public class InvalidParamtersTests
+    public class InvalidParametersTests
     {
         [Test]
         public void Cannot_create_with_null_graph()
         {
-            Assert.Throws<InvalidPathException>(() => new PathFinder(null));
+            Assert.Throws<PathFinderException>(() => new PathFinder(null));
         }
 
         [Test]
@@ -21,7 +21,7 @@ namespace DijkstraAlgorithm.Tests.Errors.Pathing
             var graph = new GraphBuilder().AddNode("A").Build();
             var pathFinder = new PathFinder(graph);
 
-            Assert.Throws<InvalidPathException>(() => pathFinder.FindShortestPath(
+            Assert.Throws<PathFinderException>(() => pathFinder.FindShortestPath(
                 graph.Nodes.Single(node => node.Id == "A"),
                 graph.Nodes.Single(node => node.Id == "A")));
         }
@@ -32,7 +32,7 @@ namespace DijkstraAlgorithm.Tests.Errors.Pathing
             var graph = new GraphBuilder().AddNode("A").Build();
             var pathFinder = new PathFinder(graph);
 
-            Assert.Throws<InvalidPathException>(() => pathFinder.FindShortestPath(
+            Assert.Throws<PathFinderException>(() => pathFinder.FindShortestPath(
                 null,
                 graph.Nodes.Single(node => node.Id == "A")));
         }
@@ -43,7 +43,7 @@ namespace DijkstraAlgorithm.Tests.Errors.Pathing
             var graph = new GraphBuilder().AddNode("A").Build();
             var pathFinder = new PathFinder(graph);
 
-            Assert.Throws<InvalidPathException>(() => pathFinder.FindShortestPath(
+            Assert.Throws<PathFinderException>(() => pathFinder.FindShortestPath(
                 graph.Nodes.Single(node => node.Id == "A"),
                 null));
         }

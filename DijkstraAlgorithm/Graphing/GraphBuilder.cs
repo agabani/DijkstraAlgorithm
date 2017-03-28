@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DijkstraAlgorithm.Exceptions;
 
 namespace DijkstraAlgorithm.Graphing
 {
@@ -17,6 +18,9 @@ namespace DijkstraAlgorithm.Graphing
 
         public GraphBuilder AddNode(string id)
         {
+            if (_nodes.ContainsKey(id))
+                throw new GraphBuilderException($"Node \"{id}\" already exists.");
+
             _nodes.Add(id, () => Node.Create(id));
             return this;
         }
@@ -25,6 +29,9 @@ namespace DijkstraAlgorithm.Graphing
         {
             if (!_links.ContainsKey(sourceId))
                 _links.Add(sourceId, new Dictionary<string, Func<Node, Link>>());
+
+            if (_links[sourceId].ContainsKey(destinationId))
+                throw new GraphBuilderException($"Link \"{sourceId}\" -> \"{destinationId}\" already exists.");
 
             _links[sourceId].Add(destinationId, node => Link.Create(weight, node));
             return this;
@@ -36,7 +43,15 @@ namespace DijkstraAlgorithm.Graphing
 
             foreach (var source in _links)
             foreach (var destination in source.Value)
+            {
+                if (!nodes.ContainsKey(source.Key))
+                    throw new GraphBuilderException($"Node \"{source.Key}\" does not exist.");
+
+                if (!nodes.ContainsKey(destination.Key))
+                    throw new GraphBuilderException($"Node \"{destination.Key}\" does not exist.");
+
                 nodes[source.Key].Add(destination.Value.Invoke(nodes[destination.Key]));
+            }
 
             var graph = Graph.Create();
 
