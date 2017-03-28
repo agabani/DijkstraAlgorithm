@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace DijkstraAlgorithm.Tests
 {
     [TestFixture]
-    public class Tests
+    public class BiDirectionalTests
     {
         private Graph _graph;
         private PathFinder _pathFinder;

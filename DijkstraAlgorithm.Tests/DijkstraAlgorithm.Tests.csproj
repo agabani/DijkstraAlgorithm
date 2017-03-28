@@ -40,7 +40,7 @@
   <ItemGroup>
     <Compile Include="Demo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="BiDirectionalTests.cs" />
     <Compile Include="UniDirectionalTests.cs" />
   </ItemGroup>
   <ItemGroup>
