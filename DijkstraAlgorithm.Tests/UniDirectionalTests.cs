@@ -1,4 +1,5 @@
-﻿using DijkstraAlgorithm.Graphing;
+﻿using System.Linq;
+using DijkstraAlgorithm.Graphing;
 using DijkstraAlgorithm.Pathing;
 using NUnit.Framework;
 
@@ -65,6 +66,7 @@ namespace DijkstraAlgorithm.Tests
 
             builder
                 .AddLink("J", "C", 4)
+                .AddLink("J", "G", 3)
                 .AddLink("J", "I", 8);
 
             _graph = builder.Build();
@@ -73,8 +75,23 @@ namespace DijkstraAlgorithm.Tests
 
         [Test]
         [TestCase("A", "B", 8)]
+        [TestCase("A", "C", 15)]
+        [TestCase("A", "D", 5)]
+        [TestCase("A", "E", 7)]
+        [TestCase("A", "F", 22)]
+        [TestCase("A", "G", 20)]
+        [TestCase("A", "H", 11)]
+        [TestCase("A", "I", 19)]
+        [TestCase("A", "J", 17)]
         public void Test(string origin, string destination, double weight)
         {
+            var path = _pathFinder.FindShortestPath(
+                _graph.Nodes.Single(node => node.Id == origin),
+                _graph.Nodes.Single(node => node.Id == destination));
+
+            Assert.That(path.Origin.Id == origin);
+            Assert.That(path.Destination.Id == destination);
+            Assert.That(path.Segments.Sum(s => s.Weight), Is.EqualTo(weight));
         }
     }
 }
