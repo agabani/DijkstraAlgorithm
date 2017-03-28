@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DijkstraAlgorithm.Exceptions;
 using DijkstraAlgorithm.Graphing;
@@ -41,6 +42,9 @@ namespace DijkstraAlgorithm.Pathing
 
             do
             {
+                if (IsPathingNotPossible(currentRecord))
+                    throw new NoPathFoundException("No paths have been found.");
+
                 foreach (var link in currentRecord.Vertex.Links)
                 {
                     var weight = currentRecord.Weight + link.Weight;
@@ -82,6 +86,11 @@ namespace DijkstraAlgorithm.Pathing
                 .FirstOrDefault();
         }
 
+        private static bool IsPathingNotPossible(Record currentRecord)
+        {
+            return Math.Abs(currentRecord.Weight - double.MaxValue) < double.Epsilon;
+        }
+
         private static Record NextRecord(Link link, IEnumerable<Record> records)
         {
             return records.Single(record => record.Vertex == link.Destination);
@@ -102,9 +111,6 @@ namespace DijkstraAlgorithm.Pathing
             var segments = new List<PathSegment>();
 
             var currentRecord = Destination(destination, records);
-
-            if (currentRecord.PreviousVertex == null)
-                throw new NoPathFoundException("No paths have been found.");
 
             do
             {
