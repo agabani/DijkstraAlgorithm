@@ -143,6 +143,15 @@ namespace DijkstraAlgorithm.Tests
         [TestCase("H", "G", 29d)]
         [TestCase("H", "I", 8d)]
         [TestCase("H", "J", 26d)]
+        [TestCase("I", "A", 15d)]
+        [TestCase("I", "B", 23d)]
+        [TestCase("I", "C", 30d)]
+        [TestCase("I", "D", 18d)]
+        [TestCase("I", "E", 9d)]
+        [TestCase("I", "F", 37d)]
+        [TestCase("I", "G", 35d)]
+        [TestCase("I", "H", 24d)]
+        [TestCase("I", "J", 32d)]
         public void Test(string origin, string destination, double weight)
         {
             var path = _pathFinder.FindShortestPath(
