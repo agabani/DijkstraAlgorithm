@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>agabani</Authors>
+    <Company>agabani</Company>
+    <PackageLicenseUrl>https://github.com/agabani/DijkstraAlgorithm/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>Copyright 2017</Copyright>
+    <PackageProjectUrl>https://github.com/agabani/DijkstraAlgorithm</PackageProjectUrl>
+    <PackageTags>Dijkstra Algorithm</PackageTags>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+</Project>
