@@ -1,0 +1,1 @@
+dotnet test .\DijkstraAlgorithm.Tests\DijkstraAlgorithm.Tests.csproj
